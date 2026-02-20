@@ -26,13 +26,11 @@ hardstatus alwayslastline "%{= bY}%H (%S) -%{= BW} %-Lw%{= WB}%n+%f %t%{-}%+Lw %
 #hardstatus alwayslastline "%{= mY}%H (%S) - %{= MW} %-Lw%{= WM}%n+%f %t%{-}%+Lw %=[%l]"
 # RED info status line (prod env)
 #hardstatus alwayslastline "%{= rY}%H (%S) - %{= RW} %-Lw%{= WR}%n+%f %t%{-}%+Lw %=[%l]"
-source ~/.screen/custom/status.screenrc
-
 chdir $HOME
 
 # first: create a project screen if needed and if STY is matching a folder name in our SCREEN_PROJECT folder
 screen -t tmp-additional-screen ~/.screen/bin/make-site-screen-rc.sh "${STY}"
-source ~/.screen/custom/tabs.screenrc
+screen -t tmp-source-custom ~/.screen/bin/source-custom.sh
 
 # After all: re-create the first window as Home
 sleep 1
