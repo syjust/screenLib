@@ -1,0 +1,40 @@
+# generic screenrc source
+# Change ^a by ^z for sub-screen remote processes
+#escape ^zz
+
+#unbind ^Z (suspend) -- usable in a remote sub screen porcess
+bind ^Z
+#unbind z (suspend) -- usable in a remote sub screen porcess
+bind z
+
+# unbind detach
+#bind ^d
+#bind d
+
+# size-and-focus
+source ~/.screen/bind/focus.screenrc
+# windows-number-and-select
+source ~/.screen/bind/windows.screenrc
+# advanced sripts (create trio windows / drop right windows)
+source ~/.screen/bind/macros.screenrc
+
+# BLUE info status line (local dev env)
+hardstatus alwayslastline "%{= bY}%H (%S) -%{= BW} %-Lw%{= WB}%n+%f %t%{-}%+Lw %=[%l]"
+# YELLOW info status line (remote dev env)
+#hardstatus alwayslastline "%{= yk}%H (%S) - %{= Yk} %-Lw%{= kY}%n+%f %t%{-}%+Lw %=[%l]"
+# MAGENTA info status line (preprod env)
+#hardstatus alwayslastline "%{= mY}%H (%S) - %{= MW} %-Lw%{= WM}%n+%f %t%{-}%+Lw %=[%l]"
+# RED info status line (prod env)
+#hardstatus alwayslastline "%{= rY}%H (%S) - %{= RW} %-Lw%{= WR}%n+%f %t%{-}%+Lw %=[%l]"
+source ~/.screen/custom/status.screenrc
+
+chdir $HOME
+
+# first: create a project screen if needed and if STY is matching a folder name in our SCREEN_PROJECT folder
+screen -t tmp-additional-screen ~/.screen/bin/make-site-screen-rc.sh "${STY}"
+source ~/.screen/custom/tabs.screenrc
+
+# After all: re-create the first window as Home
+sleep 1
+chdir $HOME
+screen -t Home

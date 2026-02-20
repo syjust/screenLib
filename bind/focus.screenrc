@@ -1,0 +1,18 @@
+# focus
+bind ^j focus down
+bind ^k focus up
+bind ^h focus left
+bind ^l focus right
+truecolor on
+
+# size
+# shift + right arrow
+bindkey "\033\133\061\073\062\103" resize +20
+# shift + left arrow
+bindkey "\033\133\061\073\062\104" resize -20
+# ctrl + O
+#bindkey "\017" resize +10
+# ctrl + T
+#bindkey "\024" resize -10
+# ^a /
+bind / resize =

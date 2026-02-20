@@ -1,0 +1,2 @@
+# your custom status bar here
+#hardstatus alwayslastline "%{= bY}Localhost (%S) - %{= BW}%-Lw%{= WB}%n+%f %t%{-}%+Lw %=[%l]"

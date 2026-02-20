@@ -1,0 +1,5 @@
+chdir $HOME/Sites/${STY}/
+screen -t ${STY}-C
+screen -t ${STY}-CLI
+screen -t ${STY}-GIT
+screen -t ${STY}-RUN
