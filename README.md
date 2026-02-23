@@ -18,15 +18,17 @@ echo 'source ~/.screen/main.screenrc' > ~/.screenrc
 
 ### Environment variables
 
-Add these to your `~/.bashrc` (or `~/.zshrc`) to override defaults:
+Three variables are defined at the top of `main.screenrc` via `setenv`:
 
-```bash
-# Root directory where your project folders live (default: ~/projects/)
-export SCREEN_PROJ_DIR="$HOME/projects"
-
-# Template used when generating project sessions (default: ~/.screen/templates/default-template.screenrc)
-export SCREEN_TEMPLATE="$HOME/.screen/templates/default-template.screenrc"
 ```
+HOME_SCREEN_DIR  →  $HOME/.screen
+SCREEN_TEMPLATE  →  $HOME_SCREEN_DIR/templates/default.screenrc
+SCREEN_PROJ_DIR  →  $HOME/projects
+```
+
+To relocate the config directory (e.g. on a new machine), change `HOME_SCREEN_DIR` in `main.screenrc` — that single line updates all dependent paths.
+
+> **Limitation:** `setenv` in `main.screenrc` always overwrites the inherited environment, so `.bashrc`/`.zshrc` exports of these variables have **no effect** on `source` paths resolved at screen startup. Shell overrides only work for scripts that run inside screen windows (which re-source `.bashrc`). `bin/make-proj-screen-rc.sh` still accepts all three variables as shell overrides when run directly outside of a screen session.
 
 When you start a screen session whose name matches a folder in `$SCREEN_PROJ_DIR`, a session file is auto-generated from the template and sourced. For example:
 
