@@ -9,7 +9,7 @@ export -f quit
 # }}}
 
 [[ -z "$HOME_SCREEN_DIR" ]] && HOME_SCREEN_DIR="$HOME/.screen"
-[[ -z "$SCREEN_TEMPLATE" ]] && SCREEN_TEMPLATE="$HOME_SCREEN_DIR/templates/default-template.screenrc"
+[[ -z "$SCREEN_TEMPLATE" ]] && SCREEN_TEMPLATE="$HOME_SCREEN_DIR/templates/default.screenrc"
 [[ -z "$SCREEN_PROJ_DIR" ]] && SCREEN_PROJ_DIR="$HOME/projects"
 
 TARGET_STY="${1}"
