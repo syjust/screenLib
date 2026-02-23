@@ -29,8 +29,8 @@ hardstatus alwayslastline "%{= bY}%H (%S) -%{= BW} %-Lw%{= WB}%n+%f %t%{-}%+Lw %
 chdir $HOME
 
 # first: create a project screen if needed and if STY is matching a folder name in our SCREEN_PROJECT folder
-screen -t tmp-additional-screen ~/.screen/bin/make-site-screen-rc.sh "${STY}"
-screen -t tmp-source-custom ~/.screen/bin/source-custom.sh
+screen -t tmp-additional-screen ${HOME}/.screen/bin/make-site-screen-rc.sh "${STY}"
+screen -t tmp-source-custom ${HOME}/.screen/bin/source-custom.sh
 
 # After all: re-create the first window as Home
 sleep 1
