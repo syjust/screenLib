@@ -15,7 +15,11 @@ read -r -p "Tab prefix (default: '$default_prefix'): " prefix
 dir="$folder"
 session="$STY"
 
+current_window=$(screen -S "$session" -Q number 2>/dev/null | awk '{print $1}')
+next=$((current_window + 1))
+
 screen -S "$session" -X chdir "$dir"
-screen -S "$session" -X screen -t "${prefix}-C"
-screen -S "$session" -X screen -t "${prefix}-GIT"
-screen -S "$session" -X screen -t "${prefix}-RUN"
+screen -S "$session" -X screen -t "${prefix}-C" $next
+screen -S "$session" -X screen -t "${prefix}-GIT" $((next + 1))
+screen -S "$session" -X screen -t "${prefix}-RUN" $((next + 2))
+screen -S "$session" -X chdir "$HOME"
