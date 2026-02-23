@@ -1,4 +1,4 @@
-chdir $HOME/Sites/${STY}/
+chdir $SCREEN_PROJ_DIR/${STY}/
 screen -t ${STY}-C
 screen -t ${STY}-CLI
 screen -t ${STY}-GIT
