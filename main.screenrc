@@ -22,14 +22,9 @@ source $HOME_SCREEN_DIR/bind/windows.screenrc
 # advanced sripts (create trio windows / drop right windows)
 source $HOME_SCREEN_DIR/bind/macros.screenrc
 
-# BLUE info status line (local dev env)
-hardstatus alwayslastline "%{= bY}%H (%S) -%{= BW} %-Lw%{= WB}%n+%f %t%{-}%+Lw %=[%l]"
-# YELLOW info status line (remote dev env)
-#hardstatus alwayslastline "%{= yk}%H (%S) - %{= Yk} %-Lw%{= kY}%n+%f %t%{-}%+Lw %=[%l]"
-# MAGENTA info status line (preprod env)
-#hardstatus alwayslastline "%{= mY}%H (%S) - %{= MW} %-Lw%{= WM}%n+%f %t%{-}%+Lw %=[%l]"
-# RED info status line (prod env)
-#hardstatus alwayslastline "%{= rY}%H (%S) - %{= RW} %-Lw%{= WR}%n+%f %t%{-}%+Lw %=[%l]"
+termcapinfo xterm* 'hs:ts=\E]2;:fs=\007:ds=\E]2;\007'
+hardstatus string "%S - %t: %h"
+
 chdir $HOME
 screen -t Home 0
 
