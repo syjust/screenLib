@@ -1,2 +1,2 @@
-bind } stuff "${HOME_SCREEN_DIR}/bin/close-right.sh\n"
-bind + stuff "${HOME_SCREEN_DIR}/bin/new-trio.sh\n"
+bind } stuff "^U${HOME_SCREEN_DIR}/bin/close-right.sh\n"
+bind + stuff "^U${HOME_SCREEN_DIR}/bin/new-trio.sh\n"

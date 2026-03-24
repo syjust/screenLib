@@ -1,4 +1,6 @@
 #!/bin/bash
+session="$STY"
+screen -S "$session" -X chdir "$PWD"
 if [[ ! -z "$1" ]] ; then
     dir="$1"
 else
@@ -20,13 +22,13 @@ else
     [[ -z "$prefix" ]] && prefix="$default_prefix"
 fi
 
-session="$STY"
 
-current_window=$(screen -S "$session" -Q number 2>/dev/null | awk '{print $1}')
-next=$((current_window + 1))
+current=$(screen -S "$session" -Q number 2>/dev/null | awk '{print $1}')
+next=$((current + 1))
 
 screen -S "$session" -X chdir "$dir"
 screen -S "$session" -X screen -t "${prefix}-C" $next
 screen -S "$session" -X screen -t "${prefix}-GIT" $((next + 1))
 screen -S "$session" -X screen -t "${prefix}-RUN" $((next + 2))
 screen -S "$session" -X chdir "$HOME"
+screen -S "$session" -X select $next
