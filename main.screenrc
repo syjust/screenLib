@@ -6,6 +6,8 @@ setenv HOME_SCREEN_DIR $HOME/.screen
 setenv SCREEN_TEMPLATE $HOME_SCREEN_DIR/templates/default.screenrc
 setenv SCREEN_PROJ_DIR $HOME/projects
 
+source $HOME_SCREEN_DIR/env/overrides.screenrc
+
 #unbind ^Z (suspend) -- usable in a remote sub screen porcess
 bind ^Z
 #unbind z (suspend) -- usable in a remote sub screen porcess
@@ -28,7 +30,7 @@ hardstatus string "%S - %t: %h"
 chdir $HOME
 screen -t Home 0
 
-stuff "$HOME_SCREEN_DIR/bin/source-custom.sh\n"
+stuff "$HOME_SCREEN_DIR/bin/source.sh $HOME_SCREEN_DIR/custom/\n"
 stuff "$HOME_SCREEN_DIR/bin/make-proj-screen-rc.sh ${STY}\n"
 
 chdir $HOME

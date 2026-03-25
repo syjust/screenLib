@@ -1,3 +1,4 @@
 private/
 sessions/
 custom/*.screenrc
+env/overrides.screenrc

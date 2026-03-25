@@ -1,0 +1,3 @@
+# Copy this file in SCREEN_HOME_DIR/env/ and Overrides or declare your locale variable environment like proposed bellow:
+#setenv SCREEN_HOME_DIR $HOME/.my-screen/
+#setenv SCREEN_PROJ_DIR $HOME/my-projects/
